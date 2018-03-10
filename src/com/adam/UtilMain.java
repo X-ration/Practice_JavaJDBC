@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class UtilMain {
     public static void main(String[] args) throws SQLException {
         JdbcUtil.initAll();
-        ResultSet resultSet = JdbcUtil.executeQuery("show databases");
+        ResultSet resultSet = JdbcUtil.executeQuery("select * from user_tables");
         while(resultSet.next()) {
-            String db = resultSet.getString("Database");
+            String db = resultSet.getString("TABLE_NAME");
             System.out.println("Query: " + db);
         }
         JdbcUtil.closeAll();
