@@ -118,6 +118,7 @@ public class JdbcUtil {
         resultSet = null;
         try {
             resultSet = statement.executeQuery(sql);
+
         } catch (SQLException e) {
             System.out.println("使用Statement进行数据库查询时出现异常");
             e.printStackTrace();
@@ -148,6 +149,72 @@ public class JdbcUtil {
                 System.out.println("关闭ResultSet时出现异常");
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void batchOperationAdd(String sql){
+        try {
+            statement.addBatch(sql);
+        } catch (SQLException e) {
+            System.out.println("使用Statement添加批处理语句出现异常");
+            e.printStackTrace();
+        }
+    }
+
+    public static void batchOperationsAddPrepared() {
+        try {
+            preparedStatement.addBatch();
+        } catch (SQLException e) {
+            System.out.println("使用PreparedStatement添加批处理语句时出现异常");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 针对Statement的批处理执行。
+     * @return 每一条语句执行的成功更新计数组成的int数组。
+     */
+    public static int[] batchOperationsExecute() {
+        int[] res = {-1};
+        try {
+            res = statement.executeBatch();
+        } catch (SQLException e) {
+            System.out.println("使用Statement进行批处理操作时出现异常");
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    /**
+     * 针对PreparedStatement的批处理执行。
+     * @return 每一条语句执行的成功更新计数组成的int数组。
+     */
+    public static int[] batchOperationsExecutePrepared() {
+        int[] res = {-1};
+        try {
+            res = preparedStatement.executeBatch();
+        } catch (SQLException e) {
+            System.out.println("使用PreparedStatement进行批处理操作时出现异常");
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public static void batchOperationsClear() {
+        try {
+            statement.clearBatch();
+        } catch (SQLException e) {
+            System.out.println("Statement清理批处理语句时出现异常");
+            e.printStackTrace();
+        }
+    }
+
+    public static void batchOperationsClearPrepared() {
+        try {
+            preparedStatement.clearBatch();
+        } catch (SQLException e) {
+            System.out.println("PreparedStatement清理批处理语句时出现异常");
+            e.printStackTrace();
         }
     }
 
