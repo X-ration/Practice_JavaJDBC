@@ -17,6 +17,7 @@ public class JdbcUtil {
 
     private static Connection connection = null;
     private static Statement statement = null;
+    private static PreparedStatement preparedStatement = null;
     private static ResultSet resultSet = null;
 
     static {
@@ -45,7 +46,7 @@ public class JdbcUtil {
 
     public static void closeAll() {
         closeResultSet();
-        closeStatement();
+        closeStatements();
         closeConnection();
     }
 
@@ -74,15 +75,40 @@ public class JdbcUtil {
             statement = connection.createStatement();
         } catch (SQLException e) {
             System.out.println("创建Statement出现异常");
+            e.printStackTrace();
         }
     }
 
-    public static void closeStatement() {
+    /**
+     * 创建PreparedStatement对象。
+     * @param sql 含有？的SQL执行语句
+     * @return 成功创建时返回PreparedStatement对象引用，失败时返回null
+     */
+    public static PreparedStatement createPreparedStatement(String sql) {
+        preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            System.out.println("创建PreparedStatement出现异常");
+            e.printStackTrace();
+        }
+        return preparedStatement;
+    }
+
+    public static void closeStatements() {
         if(statement != null) {
             try {
                 statement.close();
             } catch (SQLException e) {
                 System.out.println("关闭Statement出现异常");
+                e.printStackTrace();
+            }
+        }
+        if(preparedStatement != null) {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                System.out.println("关闭PreparedStatement出现异常");
                 e.printStackTrace();
             }
         }
@@ -93,7 +119,22 @@ public class JdbcUtil {
         try {
             resultSet = statement.executeQuery(sql);
         } catch (SQLException e) {
-            System.out.println("进行数据库查询时出现异常");
+            System.out.println("使用Statement进行数据库查询时出现异常");
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    /**
+     * 查询前要先对PreparedStatement设置相应的参数，因为参数可能是各种类型，暂时没有为此封装一个方法。
+     * @return 查询后的ResultSet结果集。
+     */
+    public static ResultSet executeQueryPrepared() {
+        resultSet = null;
+        try {
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            System.out.println("使用PreparedStatement进行数据库查询时出现异常");
             e.printStackTrace();
         }
         return resultSet;
