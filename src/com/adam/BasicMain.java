@@ -2,7 +2,7 @@ package com.adam;
 
 import java.sql.*;
 
-public class Main {
+public class BasicMain {
 
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306";
