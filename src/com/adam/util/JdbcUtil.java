@@ -70,12 +70,53 @@ public class JdbcUtil {
         }
     }
 
+    public static DatabaseMetaData getMetaDatabase() {
+        DatabaseMetaData databaseMetaData = null;
+        if(connection != null) {
+            try {
+                databaseMetaData = connection.getMetaData();
+            } catch (SQLException e) {
+                System.out.println("获取Connection的DatabaseMetaData出现异常");
+                e.printStackTrace();
+            }
+        }
+        return databaseMetaData;
+    }
+
+    public static ParameterMetaData getMetaParameter() {
+        ParameterMetaData parameterMetaData = null;
+        if(preparedStatement != null) {
+            try {
+                parameterMetaData = preparedStatement.getParameterMetaData();
+            } catch (SQLException e) {
+                System.out.println("获取PreparedStatement的ParameterMetaData时出现异常");
+                e.printStackTrace();
+            }
+        }
+        return parameterMetaData;
+    }
+
+    public static ResultSetMetaData getMetaResultSet() {
+        ResultSetMetaData resultSetMetaData = null;
+        if (resultSet != null) {
+            try {
+                resultSetMetaData = resultSet.getMetaData();
+            } catch (SQLException e) {
+                System.out.println("获取ResultSet的ResultSetMetaData时出现异常");
+                e.printStackTrace();
+            }
+        }
+        return resultSetMetaData;
+    }
+
     public static void createStatement() {
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            System.out.println("创建Statement出现异常");
-            e.printStackTrace();
+        if(connection != null) {
+            try {
+                statement = connection.createStatement();
+            } catch (SQLException e) {
+                System.out.println("创建Statement出现异常");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -86,11 +127,13 @@ public class JdbcUtil {
      */
     public static PreparedStatement createPreparedStatement(String sql) {
         preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-        } catch (SQLException e) {
-            System.out.println("创建PreparedStatement出现异常");
-            e.printStackTrace();
+        if(connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(sql);
+            } catch (SQLException e) {
+                System.out.println("创建PreparedStatement出现异常");
+                e.printStackTrace();
+            }
         }
         return preparedStatement;
     }
@@ -116,12 +159,14 @@ public class JdbcUtil {
 
     public static ResultSet executeQuery(String sql) {
         resultSet = null;
-        try {
-            resultSet = statement.executeQuery(sql);
+        if(statement != null) {
+            try {
+                resultSet = statement.executeQuery(sql);
 
-        } catch (SQLException e) {
-            System.out.println("使用Statement进行数据库查询时出现异常");
-            e.printStackTrace();
+            } catch (SQLException e) {
+                System.out.println("使用Statement进行数据库查询时出现异常");
+                e.printStackTrace();
+            }
         }
         return resultSet;
     }
@@ -132,11 +177,13 @@ public class JdbcUtil {
      */
     public static ResultSet executeQueryPrepared() {
         resultSet = null;
-        try {
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            System.out.println("使用PreparedStatement进行数据库查询时出现异常");
-            e.printStackTrace();
+        if(preparedStatement != null) {
+            try {
+                resultSet = preparedStatement.executeQuery();
+            } catch (SQLException e) {
+                System.out.println("使用PreparedStatement进行数据库查询时出现异常");
+                e.printStackTrace();
+            }
         }
         return resultSet;
     }
@@ -153,20 +200,24 @@ public class JdbcUtil {
     }
 
     public static void batchOperationAdd(String sql){
-        try {
-            statement.addBatch(sql);
-        } catch (SQLException e) {
-            System.out.println("使用Statement添加批处理语句出现异常");
-            e.printStackTrace();
+        if(statement != null) {
+            try {
+                statement.addBatch(sql);
+            } catch (SQLException e) {
+                System.out.println("使用Statement添加批处理语句出现异常");
+                e.printStackTrace();
+            }
         }
     }
 
     public static void batchOperationsAddPrepared() {
-        try {
-            preparedStatement.addBatch();
-        } catch (SQLException e) {
-            System.out.println("使用PreparedStatement添加批处理语句时出现异常");
-            e.printStackTrace();
+        if(preparedStatement != null) {
+            try {
+                preparedStatement.addBatch();
+            } catch (SQLException e) {
+                System.out.println("使用PreparedStatement添加批处理语句时出现异常");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -176,11 +227,13 @@ public class JdbcUtil {
      */
     public static int[] batchOperationsExecute() {
         int[] res = {-1};
-        try {
-            res = statement.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("使用Statement进行批处理操作时出现异常");
-            e.printStackTrace();
+        if(statement != null) {
+            try {
+                res = statement.executeBatch();
+            } catch (SQLException e) {
+                System.out.println("使用Statement进行批处理操作时出现异常");
+                e.printStackTrace();
+            }
         }
         return res;
     }
@@ -191,30 +244,36 @@ public class JdbcUtil {
      */
     public static int[] batchOperationsExecutePrepared() {
         int[] res = {-1};
-        try {
-            res = preparedStatement.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("使用PreparedStatement进行批处理操作时出现异常");
-            e.printStackTrace();
+        if(preparedStatement != null) {
+            try {
+                res = preparedStatement.executeBatch();
+            } catch (SQLException e) {
+                System.out.println("使用PreparedStatement进行批处理操作时出现异常");
+                e.printStackTrace();
+            }
         }
         return res;
     }
 
     public static void batchOperationsClear() {
-        try {
-            statement.clearBatch();
-        } catch (SQLException e) {
-            System.out.println("Statement清理批处理语句时出现异常");
-            e.printStackTrace();
+        if(statement != null) {
+            try {
+                statement.clearBatch();
+            } catch (SQLException e) {
+                System.out.println("Statement清理批处理语句时出现异常");
+                e.printStackTrace();
+            }
         }
     }
 
     public static void batchOperationsClearPrepared() {
-        try {
-            preparedStatement.clearBatch();
-        } catch (SQLException e) {
-            System.out.println("PreparedStatement清理批处理语句时出现异常");
-            e.printStackTrace();
+        if(preparedStatement != null) {
+            try {
+                preparedStatement.clearBatch();
+            } catch (SQLException e) {
+                System.out.println("PreparedStatement清理批处理语句时出现异常");
+                e.printStackTrace();
+            }
         }
     }
 

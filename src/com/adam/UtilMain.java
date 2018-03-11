@@ -2,9 +2,7 @@ package com.adam;
 
 import com.adam.util.JdbcUtil;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Arrays;
 
 /**
@@ -14,7 +12,9 @@ import java.util.Arrays;
 public class UtilMain {
     public static void main(String[] args) throws SQLException {
         JdbcUtil.initAll();
-        /*ResultSet resultSet = JdbcUtil.executeQuery("select * from user_tables");
+        /*
+        //Basic Queries
+        ResultSet resultSet = JdbcUtil.executeQuery("select * from user_tables");
         while(resultSet.next()) {
             String db = resultSet.getString("TABLE_NAME");
             System.out.println("Query: " + db);
@@ -26,6 +26,8 @@ public class UtilMain {
             String db = resultSet.getString("ename");
             System.out.println("Query: " + db);
         }*/
+        /*
+        //Batch Operations: insert values
         int empno = 6669;
         PreparedStatement preparedStatement = JdbcUtil.createPreparedStatement("insert into emp values(?,'Adam','Student',6666,'01-MAY-97',9999,100,10)");
         preparedStatement.setInt(1,++empno);
@@ -34,7 +36,17 @@ public class UtilMain {
         JdbcUtil.batchOperationsAddPrepared();
         int[] res = JdbcUtil.batchOperationsExecutePrepared();
         System.out.println("结果:" + Arrays.toString(res));
-        JdbcUtil.batchOperationsClearPrepared();
+        JdbcUtil.batchOperationsClearPrepared();*/
+        //acquire meta data
+        DatabaseMetaData databaseMetaData = JdbcUtil.getMetaDatabase();
+        System.out.println("DatabaseMetaData测试，用户名：" + databaseMetaData.getUserName());
+        PreparedStatement preparedStatement = JdbcUtil.createPreparedStatement("insert into emp values(?,'Adam','Student',6666,'01-MAY-97',9999,100,10)");
+        ParameterMetaData parameterMetaData = JdbcUtil.getMetaParameter();
+        System.out.println("ParameterMetaData测试，参数个数：" + parameterMetaData.getParameterCount());
+        JdbcUtil.createStatement();
+        ResultSet resultSet = JdbcUtil.executeQuery("select * from user_tables");
+        ResultSetMetaData resultSetMetaData = JdbcUtil.getMetaResultSet();
+        System.out.println("ResultSetMetaData测试，结果集列数：" + resultSetMetaData.getColumnCount());
         JdbcUtil.closeAll();
     }
 }
