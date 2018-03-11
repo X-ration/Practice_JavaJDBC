@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="819156d9-ff93-45c5-bf28-f8daadf2a06c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lib/ojdbc6-11.2.0.3.jar" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/com/adam/UtilMain.java" afterPath="$PROJECT_DIR$/src/com/adam/UtilMain.java" />
       <change beforePath="$PROJECT_DIR$/src/com/adam/util/JdbcUtil.java" afterPath="$PROJECT_DIR$/src/com/adam/util/JdbcUtil.java" />
     </list>
@@ -20,8 +19,8 @@
       <file leaf-file-name="UtilMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/adam/UtilMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="44" column="53" lean-forward="false" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+            <state relative-caret-position="36">
+              <caret line="54" column="26" lean-forward="false" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,8 +31,8 @@
       <file leaf-file-name="JdbcUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adam/util/JdbcUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="280" column="42" lean-forward="true" selection-start-line="280" selection-start-column="42" selection-end-line="280" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1026#1027#0" expanded="true" />
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/jdbc.properties">
+      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/local/jdk1.8/src.zip!/java/sql/Statement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="246">
+              <caret line="589" column="10" lean-forward="false" selection-start-line="589" selection-start-column="10" selection-end-line="589" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -95,7 +94,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="198" />
+    <option name="x" value="281" />
     <option name="y" value="-4" />
     <option name="width" value="933" />
     <option name="height" value="657" />
@@ -275,12 +274,12 @@
       <workItem from="1520663787641" duration="10142000" />
       <workItem from="1520696247002" duration="5000" />
       <workItem from="1520734716926" duration="882000" />
-      <workItem from="1520736131474" duration="2673000" />
+      <workItem from="1520736131474" duration="6830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13702000" />
+    <option name="totallyTimeSpent" value="17859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
@@ -299,7 +298,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22617246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33633295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -457,14 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/local/jdk1.8/src.zip!/java/sql/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11320">
-          <caret line="589" column="10" lean-forward="false" selection-start-line="589" selection-start-column="10" selection-end-line="589" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/local/jdk1.8/src.zip!/java/sql/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -501,18 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adam/util/JdbcUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1089#1090#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -521,10 +500,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/local/jdk1.8/src.zip!/java/sql/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="589" column="10" lean-forward="false" selection-start-line="589" selection-start-column="10" selection-end-line="589" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adam/util/JdbcUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="280" column="42" lean-forward="true" selection-start-line="280" selection-start-column="42" selection-end-line="280" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adam/UtilMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="44" column="53" lean-forward="false" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+        <state relative-caret-position="36">
+          <caret line="54" column="26" lean-forward="false" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

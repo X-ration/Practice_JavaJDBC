@@ -188,6 +188,38 @@ public class JdbcUtil {
         return resultSet;
     }
 
+    /**
+     * 使用Statement执行update操作。
+     * 此方法可能未经过测试。
+     * @param sql 要执行的更新语句。
+     * @return 返回-1时表示出现异常或者尚未创建Statement；返回0时表示语句不影响到任何记录；返回n(n>1)时表示语句影响到的记录数。
+     */
+    public static int executeUpdate(String sql) {
+        int res = -1;
+        if(statement != null) {
+            try {
+                res = statement.executeUpdate(sql);
+            } catch (SQLException e) {
+                System.out.println("使用Statement进行数据库更新操作时出现异常");
+                e.printStackTrace();
+            }
+        }
+        return res;
+    }
+
+    public static int executeUpdatePrepared() {
+        int res = -1;
+        if(preparedStatement != null) {
+            try {
+                res = preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("使用PreparedStatement进行数据库更新操作时出现异常");
+                e.printStackTrace();
+            }
+        }
+        return res;
+    }
+
     public static void closeResultSet() {
         if(resultSet != null) {
             try {
